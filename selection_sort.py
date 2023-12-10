@@ -1,30 +1,25 @@
-# algorítimo para buscar menor valor de uma lista:
-lista = [5,7,2,0,9,3]
-tamanho = len(lista)
-minimo_valor = lista[0]
+# Encontrando o mínimo valor de uma lista:
 
-for i in range(tamanho):
-    if lista[i] < minimo_valor:
-        minimo_valor = lista[i]
-print(minimo_valor)       
+minha_lista = [4,7,3,9,11]
+tam_lista = len(minha_lista)
+minimo_valor = minha_lista[0]
 
-#  Selectionsort:
+for i in range(tam_lista):
+    if minha_lista[i] < minimo_valor:
+        minimo_valor = minha_lista[i] 
 
-lista = [8,3,6,9,1,2,7]
+# selection sort:  
 
-def Selection_sort(lista):
-    tamanho = len(lista)
-    for j in range(tamanho - 1, tamanho):
-        minimo_index = j
-        for i in range(j, tamanho -1):
-            if lista[i] < lista[minimo_index]:
-                minimo_index = i
+def selection_sort(lista):
+    for index in range( tam_lista - 1):
+        menor_index = index
+        for valores in range(index, tam_lista):
+            if lista[valores] < lista[menor_index]:
+                menor_index = valores
+        if lista[index] > lista[menor_index]:
+            var_auxiliar = lista[index]
+            lista[index] = lista[menor_index]
+            lista[menor_index] = var_auxiliar
+    print(lista)
 
-        j = 0
-        if lista[j] > lista[minimo_index]:
-            aux = lista[j]
-            lista[j] = minimo_index
-            minimo_index = aux
-
-Selection_sort(lista)
-print(Selection_sort)
+selection_sort(minha_lista)
